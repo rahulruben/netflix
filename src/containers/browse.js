@@ -1,9 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { SelectProfileContainer } from './profiles';
 import { FirebaseContext } from '../context/firebase';
-import { Loading } from '../components';
+import { Header, Loading } from '../components';
+import  { MOVIES_BASE_API } from '../api/endpoint';
 
-export default function BrowseContainer({ slides }) {
+export default function BrowseContainer({ slides, banner }) {
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
     const { firebase } = useContext(FirebaseContext);
@@ -15,7 +16,27 @@ export default function BrowseContainer({ slides }) {
     }, [profile.displayName])
 
     return profile.displayName ? (
-        loading ? <Loading src={user.photoURL} /> : null
+        <>
+            {loading ? (
+                <Loading src={user.photoURL} />
+            ) : (
+                    <Loading.ReleaseBody />
+                )}
+
+            <Header src={`${MOVIES_BASE_API}${banner?.backdrop_path}`}>
+                <Header.Feature>
+                    <Header.FeatureText>
+                        {banner?.title || banner?.name || banner?.original_name}
+                    </Header.FeatureText>
+                    <Header.Text>
+                        {banner?.overview}
+                    </Header.Text>
+                    <Header.FeatureButton>
+                        Play
+                    </Header.FeatureButton>
+                </Header.Feature>
+            </Header>
+        </>
     ) : (
             <SelectProfileContainer user={user} setProfile={setProfile} />
         )
