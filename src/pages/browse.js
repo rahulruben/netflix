@@ -1,9 +1,14 @@
 import React from 'react';
 import { useContent } from '../hooks';
-import REQUESTS from '../api/request';
 import BrowseContainer from '../containers/browse';
+import { FooterContainer } from '../containers/footer';
 
 export default function Browse() {
-    const { content, bannerMovie } = useContent(REQUESTS.fetchTopRated);
-    return <BrowseContainer slides={content} banner={bannerMovie}/>
+    const { content, bannerMovie } = useContent();
+    return (
+        <>
+        <BrowseContainer slides={content} banner={bannerMovie} />
+        <FooterContainer />
+        </>
+    )
 }

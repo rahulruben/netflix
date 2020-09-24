@@ -5,8 +5,10 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin: 0 auto;
     max-width: 80%;
+    z-index: 1;
+    transition: all 200ms ease-in;
 `;
 
 export const Title = styled.h1`
@@ -30,6 +32,7 @@ export const Name = styled.p`
     color: #808080;
     text-overflow: ellipsis;
     font-size: 16px;
+    transition: all 200ms ease-in;
 
     &:hover {
         font-weight: bold;
@@ -43,6 +46,7 @@ export const Picture = styled.img`
     height: auto;
     border: 3px solid #000;
     cursor: pointer;
+    transition: all 200ms ease-in;
 `;
 
 export const Item = styled.li`
