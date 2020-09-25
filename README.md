@@ -3,6 +3,7 @@
 Netflix clone a netflix representation in ReactJS using the Context API for state management<br />
 The project follows the compound component architecture and uses styled-components to style the components<br />
 Used Email Authentication API from firebase to setup a Sign-up and Sign-In which also stores the profile information like name and profile number<br />
+Used React Router Transition to provide smooth transition between routing pages.
 
 [Dashboard](http://netflix-1e41b.web.app/)
 
