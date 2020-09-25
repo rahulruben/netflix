@@ -5,13 +5,16 @@ import { Header, Loading, Card } from '../components';
 import { MOVIES_BASE_API, MOVIES_BASE_IMAGE_API } from '../api/endpoint';
 import * as ROUTES from '../constants/routes';
 import logo from '../logo.svg';
+import { FooterContainer } from './footer';
 
 export default function BrowseContainer({ slides, banner }) {
     const [searchTerm, setSearchTerm] = useState('')
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
+
     const { firebase } = useContext(FirebaseContext);
     const user = firebase.auth().currentUser || {};
+
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
@@ -69,7 +72,7 @@ export default function BrowseContainer({ slides, banner }) {
                                     {
                                         item?.data?.map(movie => (
                                             <Card.Item key={movie?.title} item={movie}>
-                                                <Card.Image src={`${MOVIES_BASE_IMAGE_API}${movie.backdrop_path}`}></Card.Image>
+                                                <Card.Image src={`${MOVIES_BASE_IMAGE_API}${movie.poster_path}`}></Card.Image>
                                                 <Card.Meta>
                                                     <Card.SubTitle>{movie?.title || movie?.name || movie?.original_name}</Card.SubTitle>
                                                     <Card.Text>{movie.overview}</Card.Text>
@@ -83,6 +86,8 @@ export default function BrowseContainer({ slides, banner }) {
                     ))
                 }
             </Card.Group>
+            <FooterContainer />
+
         </>
     ) : (
             <SelectProfileContainer user={user} setProfile={setProfile} />

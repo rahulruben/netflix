@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
 import axios from '../api/axios';
 import REQUESTS from '../api/request';
+import { shuffle, getRandomNumber } from '../utils/utils';
 
 export default function useContent() {
     const [content, setContent] = useState('');
     const [bannerMovie, setBannerMovie] = useState([]);
 
     const buildByGenre = (req) => {
-        let movies = []
+        let movies = [];
+
         movies = req.map(movie => ({
             genre: movie.genre,
-            data: movie.data.results
-        }))
+            data: shuffle(movie.data.results)
+        }));
+
         setBannerMovie(
-            movies[Math.floor(Math.random() * movies.length - 1)]
-                ?.data[Math.floor(Math.random() * movies?.length - 1)]
+            movies[getRandomNumber(movies.length) || 0]?.data[getRandomNumber(movies.length) || 0]
         );
         return movies;
     }

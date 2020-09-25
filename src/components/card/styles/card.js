@@ -47,6 +47,7 @@ export const Entities = styled.div`
     &::-webkit-scrollbar {
         display: none;
     }
+
 `;
 
 export const SubTitle = styled.p`
@@ -67,19 +68,9 @@ export const Text = styled.p`
     line-height: normal;
 `;
 
-export const FeatureText = styled.p``;
-
-export const Feature = styled.div``;
-
 export const FeatureTitle = styled(Title)`
     margin-left: 0;
 `;
-
-export const FeatureClose = styled.button``;
-
-export const Maturity = styled.div``;
-
-export const Content = styled.div``;
 
 export const Meta = styled.div`
     display: none;
@@ -90,7 +81,9 @@ export const Meta = styled.div`
 `;
 
 
-export const Item = styled.div``;
+export const Item = styled.div`
+   margin: 5px;
+`;
 
 export const Image = styled.img`
     border: 0;
@@ -99,4 +92,11 @@ export const Image = styled.img`
     padding: 0;
     margin: 0;
     height: auto;
+    overflow: visible;
+    transition: all 300ms ease-in-out;
+    &:hover {
+        transform: scale(1.08);
+        
+    }
+
 `;
