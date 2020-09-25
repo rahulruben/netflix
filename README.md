@@ -1,4 +1,4 @@
-# Amazon Clone
+# Netflix Clone
 
 Netflix clone a netflix representation in ReactJS using the Context API for state management<br />
 The project follows the compound component architecture and uses styled-components to style the components<br />
@@ -25,8 +25,7 @@ Used Email Authentication API from firebase to setup a Sign-up and Sign-In which
 **Features:**
 1. Email Sign In and Sign up functionality.
 2. Random Banner update and movie shuffles.
-3. Stripe payment confirmation.
-4. Error messages for incorrect sign-in.
+3. Error messages for incorrect sign-in.
 
 **TMDB API Setup:**
 1. Create a TMDB account.
@@ -51,10 +50,6 @@ In the project directory, you can run:
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-
-### `npm start` in the `/server` directory to spin up the server
-Opens the server for accepting API requests: [http://localhost:5000](http://localhost:5000)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
