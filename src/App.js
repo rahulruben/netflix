@@ -3,7 +3,7 @@ import Main from './pages/main';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 
-function App({ location }) {
+function App() {
 	return (
 		<Router>
 			<Main />
